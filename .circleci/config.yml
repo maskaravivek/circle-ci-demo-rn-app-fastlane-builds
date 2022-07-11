@@ -121,7 +121,7 @@ jobs:
           command: |
             bundle exec fastlane genApk
       - store_artifacts:
-          path: android/app/build/outputs/apk/release/
+          path: app/build/outputs/apk/release/
 
 workflows:
   node-android-ios:
