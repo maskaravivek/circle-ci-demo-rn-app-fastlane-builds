@@ -22,7 +22,7 @@ platform :android do
   end
 
   desc "Create a new release"
-  lane :deploy do
+  lane :genApk do
     gradle(task: "clean assembleRelease")
   end
 end

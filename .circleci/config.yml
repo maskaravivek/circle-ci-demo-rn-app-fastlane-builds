@@ -36,8 +36,7 @@ jobs:
     macos:
       xcode: 13.4.1
     environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: beta
+      FASTLANE_LANE: genIpa
 
     steps:
       - checkout
@@ -118,9 +117,9 @@ jobs:
             bundle exec fastlane test
             mv fastlane/report.xml test-results/fastlane
       - run:
-          name: fastlane deploy
+          name: fastlane genApk
           command: |
-            bundle exec fastlane deploy
+            bundle exec fastlane genApk
       - store_artifacts:
           path: android/app/build/outputs/apk/release/
 
