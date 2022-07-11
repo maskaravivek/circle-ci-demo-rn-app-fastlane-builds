@@ -23,7 +23,7 @@ jobs:
           paths:
             - node_modules
 
-  macos-build:
+  ios-build:
     working_directory: ~/rnapp
     macos:
       xcode: 13.4.1
@@ -120,6 +120,6 @@ workflows:
       - android-build:
           requires:
             - node-build
-      - macos-build:
+      - ios-build:
           requires:
             - node-build
