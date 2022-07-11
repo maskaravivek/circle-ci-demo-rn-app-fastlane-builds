@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  node:
+  node-build:
     working_directory: ~/rnapp
     docker:
       - image: cimg/node:14.18.2
@@ -23,7 +23,7 @@ jobs:
           paths:
             - node_modules
 
-  macos-build-and-test:
+  macos-build:
     working_directory: ~/rnapp
     macos:
       xcode: 13.4.1
@@ -74,7 +74,7 @@ jobs:
       - store_artifacts:
           path: ios/output/gym/
   
-  android-build-and-test:
+  android-build:
     working_directory: ~/rnapp/android
     docker:
       - image: circleci/android:api-29-node
@@ -114,13 +114,12 @@ jobs:
           path: app/build/outputs/apk/release/
 
 workflows:
-  node-android-ios:
+  react-native-build:
     jobs:
-      - node
-      - android-build-and-test:
+      - node-build
+      - android-build:
           requires:
-            - node
-      - macos-build-and-test:
+            - node-build
+      - macos-build:
           requires:
-            - node
-            
+            - node-build
