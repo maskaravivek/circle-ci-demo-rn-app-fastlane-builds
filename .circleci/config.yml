@@ -31,12 +31,6 @@ jobs:
           paths:
             - node_modules
 
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
-
   macos-build-and-test:
     working_directory: ~/demo-react-native
     macos:
@@ -89,10 +83,7 @@ jobs:
           working_directory: ios
 
       - store_artifacts:
-          path: output
-          
-      - store_test_results:
-          path: output/scan
+          path: ios/output/gym/
   
   android-build-and-test:
     working_directory: ~/demo-react-native/android
@@ -130,11 +121,8 @@ jobs:
           name: fastlane deploy
           command: |
             bundle exec fastlane deploy
-      - store_test_results:
-          path: test-results
-
       - store_artifacts:
-          path: test-results
+          path: android/app/build/outputs/apk/release/
 
 workflows:
   node-android-ios:
