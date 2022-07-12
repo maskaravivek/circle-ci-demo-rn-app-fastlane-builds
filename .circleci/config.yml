@@ -72,7 +72,7 @@ jobs:
           working_directory: ios
 
       - store_artifacts:
-          path: ios/
+          path: ios/CircleCiRNDemoApp.ipa
   
   android-build:
     working_directory: ~/rnapp/android
