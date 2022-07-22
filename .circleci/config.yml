@@ -123,3 +123,4 @@ workflows:
       - ios-build:
           requires:
             - node-build
+            - android-build
